@@ -1,0 +1,53 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=keyboardcat
+    expose:
+      - 5432
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  hasura:
+    depends_on: 
+      db:
+        condition: service_healthy
+    image: hasura/graphql-engine
+    environment:
+      - HASURA_GRAPHQL_DATABASE_URL=postgres://postgres:keyboardcat@db:5432/postgres
+      - HASURA_GRAPHQL_ENABLE_CONSOLE=true
+      - HASURA_GRAPHQL_ADMIN_SECRET=keyboardcat
+    ports:
+      - 8080:8080
+  auth:
+    depends_on:
+      db:
+        condition: service_healthy
+    image: fusionauth/fusionauth-app:latest
+    env_file: fusion_auth/.env
+    healthcheck:
+      test: curl --silent --fail http://localhost:9011/api/status -o /dev/null -w "%{http_code}"
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 9011:9011
+    volumes:
+      - fusionauth_config:/usr/local/fusionauth/config
+      - ./fusion_auth/kickstart:/usr/local/fusionauth/kickstart
+#   eyeap:
+#   app1:
+#     build: app1
+#     ports:
+#       - 3000:3000
+#   app2:
+#     build: app2
+#     ports:
+#       - 4000:3000
+volumes:
+  db-data:
+  fusionauth_config:

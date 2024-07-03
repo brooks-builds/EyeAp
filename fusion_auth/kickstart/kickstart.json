@@ -1,0 +1,31 @@
+{
+  "variables": {
+    "apiKey": "4737ea8520bd454caabb7cb3d36e14bc1832c0d3f70a4189b82598670f11b1bd"
+  },
+  "apiKeys": [
+    {
+      "key": "#{apiKey}"
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "url": "/api/user/registration",
+      "body": {
+        "user": {
+          "email": "brooks@mailinator.com",
+          "password": "#{ENV.ACCOUNT_PASSWORD}",
+          "data": {
+            "Company": "Brooks Builds"
+          }
+        },
+        "registration": {
+          "applicationId": "#{FUSIONAUTH_APPLICATION_ID}",
+          "roles": [
+            "admin"
+          ]
+        }
+      }
+    }
+  ]
+}
