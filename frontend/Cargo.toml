@@ -1,0 +1,11 @@
+[package]
+name = "frontend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+yew = { version = "0.21", features = ["csr"]}
+yew-router = "0.18.0"
+openidconnect = { version = "3.5.0", features = ["reqwest"] }
+gloo = "0.11.0"
+wasm-bindgen-futures = "0.4.42"

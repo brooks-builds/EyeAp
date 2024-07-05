@@ -39,6 +39,8 @@ This first pass is going to be a learning project, meaning that the above won't 
 ## Stories
 
 - [ ] As an admin, I want to register a new app
+  - [ ] landing page
+  - [ ] log in
 - [ ] As an admin, I want to see a list of apps
 - [ ] As an unauthenticated user, I want to see a list of applications
 - [ ] As an unauthenticated user coming from an app, I want to create an account
