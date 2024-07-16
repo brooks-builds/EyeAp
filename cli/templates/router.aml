@@ -1,0 +1,4 @@
+if current == "Home"
+	@home
+else
+	@login

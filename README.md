@@ -39,11 +39,6 @@ This first pass is going to be a learning project, meaning that the above won't 
 ## Stories
 
 - [ ] As an unauthenticated admin, I want to log in
-  - [ ] Create Axum server to handle oauth2 requests
-    - [ ] send login to fusion auth
-    - [ ] redirect to axum
-    - [ ] get access token
-    - [ ] redirect back to yew
   - [ ] get user information
   - [ ] display user info
 - [ ] As an admin, I want to register a new app

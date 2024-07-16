@@ -1,0 +1,8 @@
+hstack
+	text "| "
+	for name in routes
+		@nav_item
+			$name
+				if current == name
+					text [foreground: #ffaa46] name
+	text " |"
