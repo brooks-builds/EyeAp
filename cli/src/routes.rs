@@ -21,6 +21,14 @@ impl Route {
             Route::Login => "Login",
         }
     }
+
+    pub fn new_from_name(name: &str) -> Self {
+        match name {
+            "Home" => Self::Home,
+            "Login" => Self::Login,
+            _ => Self::Home,
+        }
+    }
 }
 
 impl State for Route {
@@ -39,7 +47,7 @@ pub struct Routes;
 impl Component for Routes {
     type State = RouteState;
 
-    type Message = ();
+    type Message = Route;
 }
 
 #[derive(State)]

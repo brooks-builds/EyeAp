@@ -1,8 +1,13 @@
 hstack
 	text "| "
-	for name in routes
+	for n in routes
+		if current == n
+			text [foreground: #ffaa46] n 
+		else
+			text n
+		text " | "
+	for n in routes
+		// this should show home and login, but only shows Home
 		@nav_item
-			$name
-				if current == name
-					text [foreground: #ffaa46] name
-	text " |"
+			$name_slot
+				text n

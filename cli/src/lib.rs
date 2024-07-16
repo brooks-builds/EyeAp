@@ -28,36 +28,36 @@ pub fn run() -> Result<()> {
 
     let document = Document::new(index_template);
     let backend = TuiBackend::builder()
-        .enable_alt_screen()
         .enable_mouse()
-        .enable_raw_mode()
         .hide_cursor()
         .finish()
         .context("creating backend")?;
     let mut runtime_builder = Runtime::builder(document, backend);
 
-    let _nav_component = runtime_builder.register_component(
-        "nav",
-        nav_template,
-        Nav,
-        NavState::new(routes::Route::Home),
-    );
-    let _home_page = runtime_builder.register_component("home", home_template, Home, ());
-    let _login_page = runtime_builder.register_component("login", login_template, Login, ());
-    let _router = runtime_builder.register_component(
+    let emitter = runtime_builder.emitter();
+    let router = runtime_builder.register_component(
         "router",
         router_template,
         Routes,
         RouteState {
-            current: Value::new(routes::Route::Home),
+            current: Value::new(routes::Route::Login),
         },
     );
+    let _nav_component = runtime_builder.register_component(
+        "nav",
+        nav_template,
+        Nav,
+        NavState::new(routes::Route::Login, emitter, router),
+    );
+    let _home_page = runtime_builder.register_component("home", home_template, Home, ());
+    let _login_page = runtime_builder.register_component("login", login_template, Login, ());
     let _nav_item = runtime_builder.register_component(
         "nav_item",
         nav_item_template,
         NavItem,
         NavItemState {
-            name: Value::new(routes::Route::Home),
+            name: Value::new(routes::Route::Login),
+            clicked: Value::default(),
         },
     );
 
