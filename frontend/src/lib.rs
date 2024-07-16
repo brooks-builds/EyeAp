@@ -21,6 +21,7 @@ fn App() -> Html {
 
     html! {
         <BrowserRouter>
+            <h1>{"EyeAP"}</h1>
             <AppNav />
             <Switch<Route> render={switch} />
         </BrowserRouter>

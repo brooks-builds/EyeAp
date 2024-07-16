@@ -38,6 +38,14 @@ This first pass is going to be a learning project, meaning that the above won't 
 
 ## Stories
 
+- [ ] As an unauthenticated admin, I want to log in
+  - [ ] Create Axum server to handle oauth2 requests
+    - [ ] send login to fusion auth
+    - [ ] redirect to axum
+    - [ ] get access token
+    - [ ] redirect back to yew
+  - [ ] get user information
+  - [ ] display user info
 - [ ] As an admin, I want to register a new app
   - [ ] landing page
   - [ ] log in
@@ -71,3 +79,4 @@ This first pass is going to be a learning project, meaning that the above won't 
       - [ ] It would be nice to mention what the default hash type is
 - [ ] ui issues
   - [ ] when zoomed in on manager user page, I can only see some of the user tabs, can't select scroll bar to horizontally scroll on firefox
+- [ ] Add documentation for completely manual authentication
