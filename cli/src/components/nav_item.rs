@@ -1,6 +1,7 @@
 use anathema::{
     component::Component,
     state::{State, Value},
+    widgets::components::Context,
 };
 
 use crate::routes::Route;
@@ -17,11 +18,11 @@ impl Component for NavItem {
         mouse: anathema::component::MouseEvent,
         state: &mut Self::State,
         mut elements: anathema::widgets::Elements<'_, '_>,
-        viewport: anathema::prelude::Viewport,
+        _context: Context,
     ) {
         if mouse.lsb_up() {
             let el = elements.query().at_position(mouse.pos());
-            el.first(|element, attributes| {
+            el.first(|_element, attributes| {
                 let a = attributes.value();
                 println!("{a:?}");
             });

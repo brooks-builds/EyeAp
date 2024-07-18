@@ -28,13 +28,14 @@ pub fn run() -> Result<()> {
 
     let document = Document::new(index_template);
     let backend = TuiBackend::builder()
+        .enable_alt_screen()
+        .enable_raw_mode()
         .enable_mouse()
         .hide_cursor()
         .finish()
         .context("creating backend")?;
     let mut runtime_builder = Runtime::builder(document, backend);
 
-    let emitter = runtime_builder.emitter();
     let router = runtime_builder.register_component(
         "router",
         router_template,
@@ -46,8 +47,10 @@ pub fn run() -> Result<()> {
     let _nav_component = runtime_builder.register_component(
         "nav",
         nav_template,
-        Nav,
-        NavState::new(routes::Route::Login, emitter, router),
+        Nav {
+            router_component_id: router,
+        },
+        NavState::new(routes::Route::Login),
     );
     let _home_page = runtime_builder.register_component("home", home_template, Home, ());
     let _login_page = runtime_builder.register_component("login", login_template, Login, ());

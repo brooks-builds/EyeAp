@@ -6,8 +6,3 @@ hstack
 		else
 			text n
 		text " | "
-	for n in routes
-		// this should show home and login, but only shows Home
-		@nav_item
-			$name_slot
-				text n
