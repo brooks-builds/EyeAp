@@ -41,12 +41,10 @@ This first pass is going to be a learning project, meaning that the above won't 
 - [x] As an unauthenticated admin, I want to log in
   - [x] get user information
   - [x] display user info
-- [ ] As an admin, I want to register a new app
-  - [ ] landing page
-  - [ ] log in
-- [ ] As an admin, I want to see a list of apps
-- [ ] As an unauthenticated user, I want to see a list of applications
-- [ ] As an unauthenticated user coming from an app, I want to create an account
+- [-] As an admin, I want to register a new app
+- [-] As an admin, I want to see a list of apps
+- [-] As an unauthenticated user, I want to see a list of applications
+- [x] As an unauthenticated user coming from an app, I want to create an account
 - [ ] As an authenticated user, I need to confirm that my email is valid when creating an account
 - [ ] As an authenticated user, I want to logout
 - [ ] As an unauthenticated user coming from an app, I want to login

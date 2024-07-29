@@ -22,8 +22,8 @@ pub async fn get_user_info() -> Option<GetUserInfoResponse> {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetUserInfoResponse {
-    pub email: String,
-    pub email_verified: bool,
-    pub given_name: String,
-    pub preferred_username: String,
+    pub email: Option<String>,
+    pub email_verified: Option<bool>,
+    pub given_name: Option<String>,
+    pub preferred_username: Option<String>,
 }

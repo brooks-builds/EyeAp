@@ -30,6 +30,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      mailcatcher:
+        condition: service_healthy
     image: fusionauth/fusionauth-app:latest
     env_file: fusion_auth/.env
     healthcheck:
@@ -58,6 +60,18 @@ services:
       - 8081:8080
     healthcheck:
       test: curl --silent --fail http://localhost:8080 -o /dev/null -w "%{http_code}"
+      interval: 5s
+      timeout: 30s
+      retries: 5
+  mailcatcher:
+    build: mailcatcher
+    expose:
+      - 1025
+      - 1080
+    ports:
+      - 9010:1080
+    healthcheck:
+      test: curl --silent --fail http://localhost:1080 -o /dev/null
       interval: 5s
       timeout: 30s
       retries: 5

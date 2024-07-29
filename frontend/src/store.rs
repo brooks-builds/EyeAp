@@ -17,8 +17,8 @@ pub struct User {
 impl From<GetUserInfoResponse> for User {
     fn from(value: GetUserInfoResponse) -> Self {
         Self {
-            email: value.email.into(),
-            username: value.preferred_username.into(),
+            email: value.email.unwrap_or_default().into(),
+            username: value.preferred_username.unwrap_or_default().into(),
         }
     }
 }
