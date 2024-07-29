@@ -1,1 +1,10 @@
-text "I am the login page"
+vstack
+	row
+		text "email"
+		@input
+	row
+		text "Password"
+		@input
+	row
+		border [button_type: "login"]
+			text "Log in"

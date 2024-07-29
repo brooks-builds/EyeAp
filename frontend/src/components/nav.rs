@@ -13,6 +13,9 @@ pub fn AppNav() -> Html {
             <li>
                 <Link<Route> to={Route::Login}>{"Login"}</Link<Route>>
             </li>
+            <li>
+                <Link<Route> to={Route::Profile}>{"Profile"}</Link<Route>>
+            </li>
         </ul>
     }
 }

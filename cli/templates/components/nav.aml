@@ -1,8 +1,9 @@
 hstack
-	text "| "
 	for n in routes
+		if loop != 0
+			text " | "
+
 		if current == n
 			text [foreground: #ffaa46] n 
 		else
 			text n
-		text " | "

@@ -3,23 +3,25 @@ use anathema::{
     state::{State, Value},
 };
 
-pub type RouteNames = [&'static str; 2];
+pub type RouteNames = [&'static str; 3];
 
 #[derive(Copy, Clone)]
 pub enum Route {
     Home,
     Login,
+    Secret,
 }
 
 impl Route {
     pub fn names() -> RouteNames {
-        ["Home", "Login"]
+        ["Home", "Login", "Secret"]
     }
 
     pub fn new_from_name(name: &str) -> Self {
         match name {
             "Home" => Self::Home,
             "Login" => Self::Login,
+            "Secret" => Self::Secret,
             _ => Self::Home,
         }
     }
@@ -30,6 +32,7 @@ impl State for Route {
         let name = match self {
             Route::Home => "Home",
             Route::Login => "Login",
+            Route::Secret => "Secret",
         };
 
         Some(anathema::state::CommonVal::Str(name))

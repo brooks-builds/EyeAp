@@ -1,22 +1,32 @@
+pub mod api;
 mod components;
 mod router;
+pub mod store;
 
 use crate::router::{switch, Route};
 use components::nav::AppNav;
-use openidconnect::{core::CoreProviderMetadata, reqwest::async_http_client, IssuerUrl};
+use store::MainStore;
 use wasm_bindgen_futures::spawn_local;
 use yew::prelude::*;
 use yew_router::prelude::*;
+use yewdux::use_store;
 
 #[function_component]
 fn App() -> Html {
-    spawn_local(async {
-        let provider_metadata = CoreProviderMetadata::discover_async(
-            IssuerUrl::new("http://localhost:9011/api/identity-provider".to_string()).unwrap(),
-            async_http_client,
-        )
-        .await
-        .unwrap();
+    let (_store, dispatch) = use_store::<MainStore>();
+
+    use_effect(move || {
+        let dispatch = dispatch.clone();
+
+        spawn_local(async move {
+            if let Some(user) = api::get_user_info().await {
+                dispatch.reduce_mut(|store| {
+                    store.user = Some(user.into());
+                });
+            };
+        });
+
+        || {}
     });
 
     html! {

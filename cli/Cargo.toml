@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anathema = { path = "../../../other/anathema" }
+anathema = { git = "https://github.com/togglebyte/anathema", branch = "dev"}
 eyre = "0.6.12"
+unicode-width = "0.1.13"

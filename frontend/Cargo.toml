@@ -10,3 +10,6 @@ openidconnect = { version = "3.5.0", features = ["reqwest"] }
 gloo = "0.11.0"
 wasm-bindgen-futures = "0.4.42"
 rand = "0.8.5"
+web-sys = { version = "0.3.69", features = ["RequestCredentials"] }
+serde = { version = "1.0", features = ["derive"]}
+yewdux = "0.10.0"

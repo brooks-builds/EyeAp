@@ -1,10 +1,8 @@
 vstack
-	container [height: 2]
-		align [alignment: "top"]
-			text "EyeAP CLI"
-	container [height: 1]
-		align [alignment: "top"]
-			@nav
-	expand [axis: "vertical"]
-		border
+	hstack
+		text "EyeAP CLI"
+		spacer
+		@nav
+	border
+		expand
 			@router

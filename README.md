@@ -38,9 +38,9 @@ This first pass is going to be a learning project, meaning that the above won't 
 
 ## Stories
 
-- [ ] As an unauthenticated admin, I want to log in
-  - [ ] get user information
-  - [ ] display user info
+- [x] As an unauthenticated admin, I want to log in
+  - [x] get user information
+  - [x] display user info
 - [ ] As an admin, I want to register a new app
   - [ ] landing page
   - [ ] log in

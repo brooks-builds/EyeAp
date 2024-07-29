@@ -1,9 +1,6 @@
-use anathema::{
-    component::*,
-    state::{List, State, Value},
-};
-
 use crate::routes::Route;
+use anathema::component::{Component, ComponentId};
+use anathema::state::{List, State, Value};
 
 pub struct Nav {
     pub router_component_id: ComponentId<Route>,

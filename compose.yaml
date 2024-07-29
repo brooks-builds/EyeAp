@@ -14,15 +14,18 @@ services:
       retries: 5
   hasura:
     depends_on: 
-      db:
+      auth:
         condition: service_healthy
     image: hasura/graphql-engine
-    environment:
-      - HASURA_GRAPHQL_DATABASE_URL=postgres://postgres:keyboardcat@db:5432/postgres
-      - HASURA_GRAPHQL_ENABLE_CONSOLE=true
-      - HASURA_GRAPHQL_ADMIN_SECRET=keyboardcat
+    env_file: .env_compose
     ports:
       - 8082:8080
+    healthcheck:
+      test: curl --silent --fail http://localhost:8080/healthz -o /dev/null
+      interval: 5s
+      timeout: 5s
+      start_period: 15s
+      retries: 15
   auth:
     depends_on:
       db:
@@ -30,7 +33,7 @@ services:
     image: fusionauth/fusionauth-app:latest
     env_file: fusion_auth/.env
     healthcheck:
-      test: curl --silent --fail http://localhost:9011/api/status -o /dev/null -w "%{http_code}"
+      test: curl --silent --fail http://localhost:9011/.well-known/jwks -o /dev/null -w "%{http_code}"
       interval: 5s
       timeout: 5s
       retries: 5
@@ -42,6 +45,8 @@ services:
   eyeap:
     depends_on:
       auth:
+        condition: service_healthy
+      hasura:
         condition: service_healthy
     build: frontend
     develop:

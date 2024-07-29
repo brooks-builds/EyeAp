@@ -5,7 +5,7 @@ pub fn LoginPage() -> Html {
     html! {
         <div>
             <h1>{"Login"}</h1>
-            <a href="http://localhost:9011/oauth2/authorize?client_id=aad62697-60d9-4a67-9e1e-28f6acff23e5&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8081%2Fauth%2Flogin">{"Login with fusion auth"}</a>
+            <a href="http://localhost:9011/app/login/792f4a26-2368-4566-b0b7-6935f338cf1b?redirect_uri=http://localhost:8081/auth/login&state=oqirntegjriplgjwy48ghdtnsd&scope=openid%20email%20profile">{"Login with fusion auth"}</a>
         </div>
     }
 }

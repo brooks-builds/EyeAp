@@ -1,0 +1,5 @@
+border [width: 30, foreground: focus_color, min-height: 3]
+	zstack
+		text [wrap: "overflow"] input.input
+		position [left: input.cursor_pos]
+			container [width: 1, height: 1, inverse: true]

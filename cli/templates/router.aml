@@ -1,4 +1,4 @@
 if current == "Home"
 	@home
-else
+else if current == "Login"
 	@login
