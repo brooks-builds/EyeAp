@@ -20,11 +20,10 @@ pub fn AppNav() -> Html {
                 <li>
                     <a href="http://localhost:9011/app/logout/792f4a26-2368-4566-b0b7-6935f338cf1b?redirect_uri=http://localhost:8081">{"Logout"}</a>
                 </li>
-            } else {
-                <li>
-                    <Link<Route> to={Route::Login}>{"Login"}</Link<Route>>
-                </li>
             }
+            <li>
+                <Link<Route> to={Route::Login}>{"Login"}</Link<Route>>
+            </li>
         </ul>
     }
 }

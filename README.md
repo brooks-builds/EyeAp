@@ -46,18 +46,15 @@ This first pass is going to be a learning project, meaning that the above won't 
 - [-] As an unauthenticated user, I want to see a list of applications
 - [x] As an unauthenticated user coming from an app, I want to create an account
 - [x] As an authenticated user, I want to logout
-- [ ] As an unauthenticated user coming from an app, I want to login
-- [ ] As an authenticated user, I want to purchase a license to use an app
-- [ ] As an authenticated user with a license, I want to use an app
-- [ ] As an admin, I want to see a list of users
-- [ ] As an admin, I want to assign a user to an app
-- [ ] As an admin, I want to assign a user to multiple apps
-- [ ] As an admin, I want remove a user from an app
-- [ ] As an authenticated user, I want to disable my account
-- [ ] As an authenticated user, I want to update my account details
-- [ ] As an admin, I want to disable a user
-- [ ] As an admin, I want to delete a user
-- [ ] As an admin, I want to update a user
+- [-] As an admin, I want to see a list of users
+- [-] As an admin, I want to assign a user to an app
+- [-] As an admin, I want to assign a user to multiple apps
+- [-] As an admin, I want remove a user from an app
+- [-] As an authenticated user, I want to disable my account
+- [-] As an authenticated user, I want to update my account details
+- [-] As an admin, I want to disable a user
+- [-] As an admin, I want to delete a user
+- [-] As an admin, I want to update a user
 - [ ] As an authenticated user, I need to confirm that my email is valid when creating an account
 
 ## Questions for FusionAuth
@@ -73,3 +70,5 @@ This first pass is going to be a learning project, meaning that the above won't 
 - [ ] ui issues
   - [ ] when zoomed in on manager user page, I can only see some of the user tabs, can't select scroll bar to horizontally scroll on firefox
 - [ ] Add documentation for completely manual authentication
+- [ ] In lambda functions, can we see what version of Node is going to be used?
+  - [ ] Can we use destructuring in lambda functions?
