@@ -8,6 +8,12 @@ pub struct MainStore {
     pub user: Option<User>,
 }
 
+impl MainStore {
+    pub fn logged_in(&self) -> bool {
+        self.user.is_some()
+    }
+}
+
 #[derive(Default, Clone, PartialEq)]
 pub struct User {
     pub email: AttrValue,
